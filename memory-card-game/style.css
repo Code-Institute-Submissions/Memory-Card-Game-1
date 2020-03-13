@@ -16,7 +16,7 @@ body {
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    border: 2px solid lime;
+    
 }
 
 .memory-card {
@@ -24,7 +24,12 @@ body {
     height:calc(33.333% - 10px);
     margin: 5px;
     position: relative;
-    
+    transform: scale(1)
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
 }
 
 .card-front,
@@ -34,6 +39,6 @@ body {
     padding: 20px;
     position: absolute;
     border-radius: 5px;
-    background: #e0e0e0
+    background: #ececec
 }
 
