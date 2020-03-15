@@ -1,55 +1,66 @@
+/* Generic page css */
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    display: flex;
-    background: #dadada;
+	height: 100vh;
+	display: flex;
+	background: #dadada;
 }
+
+/* Section conatining main game */
 
 .memory-card-game {
-    width: 640px;
-    height: 640px;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    perspective: 1000px;
-    
+	width: 640px;
+	height: 640px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	perspective: 1000px;
 }
+
+/* each individual Div which is the front and back of the memory card, 3d effect used for enhanced visuals */
 
 .memory-card {
-    width:calc(25% - 10px);
-    height:calc(33.333% - 10px);
-    margin: 5px;
-    position: relative;
-    transform: scale(1);
-    transform-style: preserve-3d;
-    transition: transform .2s;
+	width: calc(25% - 10px);
+	height: calc(33.333% - 10px);
+	margin: 5px;
+	position: relative;
+	transform: scale(1);
+	transform-style: preserve-3d;
+	transition: transform .2s;
 }
+
+/* small animation to smooth over when a card is clicked */
 
 .memory-card:active {
-    transform: scale(.97);
-    transition: transform .2s;
+	transform: scale(.97);
+	transition: transform .2s;
 }
 
+/* start of animation */
+
 .memory-card.flip {
-    transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
+
+/* individual size and positioning for images on either side of the card */
 
 .card-front,
 .card-back {
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    position: absolute;
-    border-radius: 5px;
-    background: #ececec;
-    backface-visibility: hidden;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	position: absolute;
+	border-radius: 5px;
+	background: #ececec;
+	backface-visibility: hidden;
 }
 
 .card-front {
-    transform: rotateY(180deg);
+	transform: rotateY(180deg);
 }
