@@ -1,46 +1,42 @@
-const cards = document.querySelectorAll(".memory-card");
+const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
-function flipCard(){
+function flipCard() {
+  this.classList.add('flip');
 
-    this.classList.toggle("flip");
+  if (!hasFlippedCard) {
+    // first click
+    hasFlippedCard = true;
+    firstCard = this;
 
-    if (!hasFlippedCard) {
-
-        // First click
-
-        hasFlippedCard = true;
-        firstCard = this;
-
-    } else {
-
-        // Second click
-
-        hasFlippedCard = false;
-        secondCard = this;
-        
-        // Do cards match?
-
-        if (firstCard.dataset.image === 
-            secondCard.dataset.image) {
-            
-            // a match!
-
-            firstCard.removeEventListener("click", flipCard);
-            secondCard.removeEventListener("click", flipCard);
-
-       } else {
-
-        // its not a match! set a timer to be able to see both cards flipping
-
-        setTimeout(() => {
-        firstCard.classList.remove("flip");
-        SecondCard.classList.remove("flip");
-        }, 1500);
-    }  
+    return;
   }
+
+  // second click
+  hasFlippedCard = false;
+  secondCard = this;
+
+  checkForMatch();
 }
 
-cards.forEach(card => card.addEventListener("click", flipCard));
+function checkForMatch() {
+  let isMatch = firstCard.dataset.image === secondCard.dataset.image;
+
+  isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+  firstCard.removeEventListener('click', flipCard);
+  secondCard.removeEventListener('click', flipCard);
+}
+
+function unflipCards() {
+  setTimeout(() => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+  }, 1500);
+}
+
+cards.forEach(card => card.addEventListener('click', flipCard));
