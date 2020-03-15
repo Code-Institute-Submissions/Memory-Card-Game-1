@@ -38,7 +38,8 @@ function flipCard(){
         firstCard.classList.remove("flip");
         SecondCard.classList.remove("flip");
     }, 1500);
-  }  
+   }  
+  }
 }
+
 cards.forEach(card => card.addEventListener("click", flipCard));
-}
