@@ -15,7 +15,6 @@ body {
 .Title-and-refresh {
     height: 640px;
     width: 200px;
-    margin: auto;
     display: flex;
     justify-content: left;
     background: #000
