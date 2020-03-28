@@ -1,4 +1,5 @@
 /* Generic page css */
+@import url('https://fonts.googleapis.com/css?family=Chewy&display=swap');
 
 * {
 	padding: 0;
@@ -12,15 +13,40 @@ body {
 	background: #dadada;
 }
 
-.title-and-refresh {
-    height: 640px;
-    width: 200px;
-    display: flex;
-    justify-content: left;
-    background: #000000;
-    z-index: 1;
+a {
+    text-decoration: none !important;
 }
 
+/* side bar (Title and Refresh button) */
+
+.title-and-refresh {
+    height: 100vh;
+    width: 240px;
+    background: #dadada;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "Chewy", cursive;
+}
+
+.title {
+    color: #000000;
+    padding: 40px;
+}
+
+.refresh {
+    border: 4px solid #000000;
+    color: #000000;
+    padding: 40px;
+    border-radius: 100px;
+    margin: 15px;
+}
+
+.title h1, .refresh h2 {
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: 30px;
+}
 /* Section conatining main game */
 
 .memory-card-game {
@@ -44,7 +70,19 @@ body {
 	transition: transform .2s;
 }
 
-/* small animation to smooth over when a card is clicked */
+/* small animations to smooth over when a card or the refresh button is clicked */
+
+.refresh:hover {
+    color: #dadada;
+    background-color: #000000;
+    border-color: #ececec;
+}
+
+.refresh:active {
+	transform: scale(.97);
+	transition: transform .2s;
+}
+
 
 .memory-card:active {
 	transform: scale(.97);
