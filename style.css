@@ -17,7 +17,8 @@ body {
     width: 200px;
     display: flex;
     justify-content: left;
-    background: #000
+    background: #000;
+    
 }
 
 /* Section conatining main game */
